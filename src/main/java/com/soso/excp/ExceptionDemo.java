@@ -7,7 +7,7 @@ public class ExceptionDemo {
 
     public  static void main(String[] agr){
         try {
-            System.out.println("1/2=" + new ExceptionDemo().div(1,0));
+            System.out.println("1/2=" + new ExceptionDemo().div(1,2));
         } catch (Exception e){
             System.out.println("get you:" + e.getMessage());
             e.printStackTrace();
