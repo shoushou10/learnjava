@@ -6,7 +6,7 @@ public class MYSQLDemo {
 
     // MySQL 8.0 以下版本 - JDBC 驱动名及数据库 URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/mysql";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/sosodb";
 
     // 数据库的用户名与密码，需要根据自己的设置
     static final String USER = "root";
@@ -27,20 +27,22 @@ public class MYSQLDemo {
             System.out.println(" 实例化Statement对象...");
             stmt = conn.createStatement();
             String sql;
-            sql = "SELECT Host, Db, User FROM db";
+            sql = "SELECT id, name, sex, address FROM person";
             ResultSet rs = stmt.executeQuery(sql);
 
             // 展开结果集数据库
             while(rs.next()){
                 // 通过字段检索
-                String host  = rs.getString("Host");
-                String db = rs.getString("Db");
-                String user = rs.getString("User");
+                String id  = rs.getString("id");
+                String name = rs.getString("name");
+                String sex = rs.getString("sex");
+                String address = rs.getString("address");
 
                 // 输出数据
-                System.out.print("Host: " + host);
-                System.out.print(", db: " + db);
-                System.out.print(",  user: " + user);
+                System.out.print("id: " + id);
+                System.out.print(", name: " + name);
+                System.out.print(",  sex: " + sex);
+                System.out.print(",  addess: " + address);
                 System.out.print("\n");
             }
             // 完成后关闭
