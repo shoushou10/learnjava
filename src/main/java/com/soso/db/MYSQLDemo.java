@@ -39,11 +39,11 @@ public class MYSQLDemo {
                 String address = rs.getString("address");
 
                 // 输出数据
-                System.out.print("id: " + id);
-                System.out.print(", name: " + name);
-                System.out.print(",  sex: " + sex);
-                System.out.print(",  addess: " + address);
-                System.out.print("\n");
+                System.out.println("id: " + id);
+                System.out.println("name: " + name);
+                System.out.println("sex: " + sex);
+                System.out.println("addess: " + address);
+                System.out.println("\n");
             }
             // 完成后关闭
             rs.close();
