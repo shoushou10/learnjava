@@ -2,7 +2,9 @@ package com.soso.nba;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
+@Component(value = "player")
 public class Player {
     private String name;
     private Long num;
