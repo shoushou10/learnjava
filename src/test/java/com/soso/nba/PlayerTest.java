@@ -4,11 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
 
-import static org.junit.Assert.*;
-
-@Component(value = "playerTest")
 public class PlayerTest {
 
     @Test

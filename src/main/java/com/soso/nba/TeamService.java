@@ -1,9 +1,9 @@
 package com.soso.nba;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component(value = "teamService")
+@Service(value = "teamService")
 public class TeamService {
 
     @Autowired
