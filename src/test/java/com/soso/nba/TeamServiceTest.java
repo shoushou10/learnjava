@@ -1,14 +1,27 @@
 package com.soso.nba;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
+import org.powermock.reflect.Whitebox;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+@RunWith(PowerMockRunner.class)
+@PrepareForTest(TeamService.class)
 public class TeamServiceTest {
+
+    @InjectMocks
+    TeamService teamService;
 
     @Test
     public void show() {
@@ -22,5 +35,23 @@ public class TeamServiceTest {
         teamService.team.setPlayerList(new ArrayList<Player>());
         teamService.team.addPlayer(teamService.player);
         teamService.show();
+    }
+
+    /**
+     * @desc 测试私有方法
+     * @throws IllegalAccessException
+     * @throws InvocationTargetException
+     */
+    @Test
+    public void test_getName() throws IllegalAccessException,InvocationTargetException{
+        Method method = PowerMockito.method(TeamService.class,"getName",String.class);
+        Object ret = method.invoke(teamService,"Lakers");
+        assertEquals("Lakers",ret);
+    }
+
+    @Test
+    public void test_getName_2() throws Exception{
+        Object ret = Whitebox.invokeMethod(teamService,"getName","Kobe");
+        assertEquals("Kobe",ret);
     }
 }

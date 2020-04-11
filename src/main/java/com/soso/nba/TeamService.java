@@ -15,4 +15,8 @@ public class TeamService {
     public void show(){
         team.show();
     }
+
+    private String getName(String name){
+        return name;
+    }
 }
