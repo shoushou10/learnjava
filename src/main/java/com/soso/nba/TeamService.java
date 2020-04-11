@@ -19,4 +19,8 @@ public class TeamService {
     private String getName(String name){
         return name;
     }
+
+    public String retName(String name){
+        return getName(name);
+    }
 }

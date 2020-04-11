@@ -49,9 +49,24 @@ public class TeamServiceTest {
         assertEquals("Lakers",ret);
     }
 
+    /**
+     * @desc 测试私有方法2
+     * @throws Exception
+     */
     @Test
     public void test_getName_2() throws Exception{
         Object ret = Whitebox.invokeMethod(teamService,"getName","Kobe");
         assertEquals("Kobe",ret);
+    }
+
+    /**
+     * @desc Mock私有方法
+     * @throws Exception
+     */
+    @Test
+    public void test_retName() throws Exception{
+        TeamService spy = PowerMockito.spy(teamService);
+        PowerMockito.when(spy,"getName","Yaoming").thenReturn("YaoMing");
+        assertEquals("YaoMing",spy.retName("Yaoming"));
     }
 }
